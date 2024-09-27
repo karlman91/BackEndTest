@@ -16,4 +16,10 @@
     <PackageReference Include="coverlet.collector" Version="3.1.2" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Backend.Test.Model\Backend.Test.Model.csproj" />
+    <ProjectReference Include="..\Backend.Test.Persistance\Backend.Test.Persistance.csproj" />
+    <ProjectReference Include="..\Backend.Test.Services\Backend.Test.Services.csproj" />
+  </ItemGroup>
+
 </Project>

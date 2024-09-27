@@ -7,8 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Contracts\" />
-    <Folder Include="Services\" />
+    <ProjectReference Include="..\Backend.Test.Model\Backend.Test.Model.csproj" />
+    <ProjectReference Include="..\Backend.Test.Persistance\Backend.Test.Persistance.csproj" />
   </ItemGroup>
 
 </Project>
