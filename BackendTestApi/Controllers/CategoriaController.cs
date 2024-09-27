@@ -30,8 +30,8 @@ namespace BackendTestApi.Controllers
 
         }
 
-        [HttpGet]
-        public ActionResult<ProductoDomain> GetById([FromQuery] int id)
+        [HttpGet("{id}")]
+        public ActionResult<ProductoDomain> GetById(int id)
         {
             var result = _categoriasService.FindById(id);
             if (result != null)
@@ -45,13 +45,13 @@ namespace BackendTestApi.Controllers
 
         }
 
-        [HttpDelete]
-        public ActionResult<bool> Delete([FromBody] int id)
+        [HttpDelete("{id}")]
+        public ActionResult<bool> Delete(int id)
         {
             return _categoriasService.Remove(id) == true ? Ok(true) : NoContent();
         }
 
-        [HttpPost]
+        [HttpPost("{obj}")]
         public ActionResult<bool> Add([FromBody] CategoriaDomain obj)
         {
             return _categoriasService.Save(obj) == true ? Ok(true) : NoContent();

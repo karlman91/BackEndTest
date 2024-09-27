@@ -29,7 +29,7 @@ namespace BackendTestApi.Controllers
             
         }
 
-        [HttpGet]
+        [HttpGet("{id}")]
         public ActionResult<ProductoDomain> GetById([FromQuery] int id)
         {
             var result = _productoService.FindById(id);
@@ -43,13 +43,13 @@ namespace BackendTestApi.Controllers
 
         }
 
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public ActionResult<bool> Delete([FromBody] int id) {
             return _productoService.Remove(id) == true ? Ok(true) : NoContent();
         }
 
 
-        [HttpPost]
+        [HttpPost("{obj}")]
         public ActionResult<bool> Add([FromBody] ProductoDomain obj) {
             return _productoService.Save(obj) == true ? Ok(true) : NoContent();
         }
