@@ -19,12 +19,23 @@ builder.Services.AddScoped<IProductoService, ProductoService>();
 builder.Services.AddScoped<ICategoriaRepository, CategoriaRepository>();
 builder.Services.AddScoped<ICategoriasService, CategoriasService>();
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAngularApp",
+        policy =>
+        {
+            policy.WithOrigins("http://localhost:4200")
+                  .AllowAnyHeader()
+                  .AllowAnyMethod();
+        });
+});
 
 
 var app = builder.Build();
-
+app.UseCors("AllowAngularApp");
 app.UseSwagger();
 app.UseSwaggerUI();
+
 
 
 using (var scope = app.Services.CreateScope())
